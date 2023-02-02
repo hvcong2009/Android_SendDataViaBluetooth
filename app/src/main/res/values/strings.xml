@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BluetoothApp</string>
+    <string name="scan">Quét</string>
+    <string name="available_device">Thiết bị có sẵn</string>
+    <string name="paired_device">Thiết bị đã ghép nối</string>
+    <string name="bluetooth">Bluetooth</string>
+</resources>
