@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Minh/Desktop/SourceCode/Android_SendDataViaBluetooth/app/src/main/res/drawable/bottom_stroke_background.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Minh/Desktop/SourceCode/Android_SendDataViaBluetooth/app/src/main/res/drawable/stroke_background.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Minh/Desktop/SourceCode/Android_SendDataViaBluetooth/app/src/main/res/layout/activity_bluetooth.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/Minh/Desktop/SourceCode/Android_SendDataViaBluetooth/app/src/main/res/layout/activity_data.xml" value="0.1921875" />
+        <entry key="..\:/Users/Minh/Desktop/SourceCode/Android_SendDataViaBluetooth/app/src/main/res/layout/item_bluetooth_device.xml" value="0.1921875" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

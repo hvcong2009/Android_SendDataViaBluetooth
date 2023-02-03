@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".DataActivity">
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:maxLines="6"
+        android:minLines="1"
+        android:lines="3"
+        android:background="@drawable/stroke_background"
+        android:gravity="top|start"
+        android:hint="@string/input_data"
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:textSize="15sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/send" />
+
+</LinearLayout>

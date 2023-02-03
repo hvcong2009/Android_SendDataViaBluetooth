@@ -56,116 +56,116 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        Log.d(TAG, TAG + " - onCreate");
+//
+//        mProgressDialog = new ProgressDialog(MainActivity.this);
+//
+//        TextView txtDeviceConnect = findViewById(R.id.txt_deviceConnect);
+//
+//        // Load data for Spinner PairedDevices
+//        mPairedDevices = BluetoothService.getInstance().getPairedDevices();
+//        ArrayList<String> PairedDevicesName = new ArrayList<>();
+//        for (Device device : mPairedDevices) {
+//            PairedDevicesName.add(device.getName());
+//        }
+//        Spinner spinnerPairedDevice = (Spinner) findViewById(R.id.spn_pairedDeviceList);
+//        ArrayAdapter<String> arrayAdapterPairedDevices = new ArrayAdapter(this, android.R.layout.simple_list_item_1, PairedDevicesName);
+//        arrayAdapterPairedDevices.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerPairedDevice.setAdapter(arrayAdapterPairedDevices);
+//        spinnerPairedDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                mDeviceSelected = new Device(mPairedDevices.get(position).getName(), mPairedDevices.get(position).getAddress(), false);
+//                txtDeviceConnect.setText(mPairedDevices.get(position).getName());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                mDeviceSelected = new Device(mPairedDevices.get(0).getName(), mPairedDevices.get(0).getAddress(), false);
+//                txtDeviceConnect.setText(mPairedDevices.get(0).getName());
+//            }
+//        });
+//
+//        // Load data for Spinner AvailableDevices
+//        Spinner spinnerAvailableDevice = (Spinner) findViewById(R.id.spn_availableDeviceList);
+//        ArrayAdapter<String> arrayAdapterAvailableDevices = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mAvailableDevices);
+//        arrayAdapterAvailableDevices.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerAvailableDevice.setAdapter(arrayAdapterAvailableDevices);
+//        spinnerAvailableDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+////                mDeviceSelected = new Device(getAvailableDevices().get(position).getName(), getAvailableDevices().get(position).getAddress(), false);
+////                txtDeviceConnect.setText(getAvailableDevices().get(position).getName());
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        });
+//
+//        Button btnScanDevice = findViewById(R.id.btn_scan);
+//        btnScanDevice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mProgressDialog.setMessage("Loading ...");
+//                mProgressDialog.show();
+//
+//                // Load data for Spinner AvailableDevices
+//                mAvailableDevices = BluetoothService.getInstance().getAvailableDevices();
+//                arrayAdapterAvailableDevices.notifyDataSetChanged();
+//
+//
+//                mProgressDialog.dismiss();
+//            }
+//        });
+//
+//        Button btnSendData = findViewById(R.id.btn_sendData);
+//        btnSendData.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Log.d(TAG, TAG + " - onClick");
+//
+//                        unregisterReceiver(receiverBluetoothAvailableDevices);
+//
+//                        sendDataViaBluetooth();
+//                    }
+//                });
+//            }
+//        });
+//
+//        mActivityResultLauncher = registerForActivityResult(
+//                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//                    @Override
+//                    public void onActivityResult(ActivityResult result) {
+//                        if (result.getResultCode() == Activity.RESULT_OK) {
+//                            Log.d(TAG, TAG + " - enable Bluetooth success");
+//                        } else {
+//                            Log.d(TAG, TAG + " - enable Bluetooth fail");
+//                        }
+//                    }
+//                }
+//        );
+//
+//        // Register for broadcasts when a device is discovered.
+//        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+//        registerReceiver(receiverBluetoothAvailableDevices, filter);
+//    }
 
-        Log.d(TAG, TAG + " - onCreate");
 
-        mProgressDialog = new ProgressDialog(MainActivity.this);
-
-        TextView txtDeviceConnect = findViewById(R.id.txt_deviceConnect);
-
-        // Load data for Spinner PairedDevices
-        mPairedDevices = BluetoothService.getInstance().getPairedDevices();
-        ArrayList<String> PairedDevicesName = new ArrayList<>();
-        for (Device device : mPairedDevices) {
-            PairedDevicesName.add(device.getName());
-        }
-        Spinner spinnerPairedDevice = (Spinner) findViewById(R.id.spn_pairedDeviceList);
-        ArrayAdapter<String> arrayAdapterPairedDevices = new ArrayAdapter(this, android.R.layout.simple_list_item_1, PairedDevicesName);
-        arrayAdapterPairedDevices.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPairedDevice.setAdapter(arrayAdapterPairedDevices);
-        spinnerPairedDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mDeviceSelected = new Device(mPairedDevices.get(position).getName(), mPairedDevices.get(position).getAddress(), false);
-                txtDeviceConnect.setText(mPairedDevices.get(position).getName());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                mDeviceSelected = new Device(mPairedDevices.get(0).getName(), mPairedDevices.get(0).getAddress(), false);
-                txtDeviceConnect.setText(mPairedDevices.get(0).getName());
-            }
-        });
-
-        // Load data for Spinner AvailableDevices
-        Spinner spinnerAvailableDevice = (Spinner) findViewById(R.id.spn_availableDeviceList);
-        ArrayAdapter<String> arrayAdapterAvailableDevices = new ArrayAdapter(this, android.R.layout.simple_list_item_1, mAvailableDevices);
-        arrayAdapterAvailableDevices.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAvailableDevice.setAdapter(arrayAdapterAvailableDevices);
-        spinnerAvailableDevice.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                mDeviceSelected = new Device(getAvailableDevices().get(position).getName(), getAvailableDevices().get(position).getAddress(), false);
-//                txtDeviceConnect.setText(getAvailableDevices().get(position).getName());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        Button btnScanDevice = findViewById(R.id.btn_scan);
-        btnScanDevice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mProgressDialog.setMessage("Loading ...");
-                mProgressDialog.show();
-
-                // Load data for Spinner AvailableDevices
-                mAvailableDevices = BluetoothService.getInstance().getAvailableDevices();
-                arrayAdapterAvailableDevices.notifyDataSetChanged();
-
-
-                mProgressDialog.dismiss();
-            }
-        });
-
-        Button btnSendData = findViewById(R.id.btn_sendData);
-        btnSendData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, TAG + " - onClick");
-
-                        unregisterReceiver(receiverBluetoothAvailableDevices);
-
-                        sendDataViaBluetooth();
-                    }
-                });
-            }
-        });
-
-        mActivityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Log.d(TAG, TAG + " - enable Bluetooth success");
-                        } else {
-                            Log.d(TAG, TAG + " - enable Bluetooth fail");
-                        }
-                    }
-                }
-        );
-
-        // Register for broadcasts when a device is discovered.
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(receiverBluetoothAvailableDevices, filter);
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        unregisterReceiver(receiverBluetoothAvailableDevices);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//
+//        unregisterReceiver(receiverBluetoothAvailableDevices);
+//    }
 
     private void sendDataViaBluetooth() {
         // Check device support bluetooth or not

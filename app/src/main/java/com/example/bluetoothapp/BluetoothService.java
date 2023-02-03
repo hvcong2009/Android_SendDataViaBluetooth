@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class BluetoothService {
-    public static int REQUEST_BLUETOOTH = 1;
+//    public static int REQUEST_BLUETOOTH = 1;
     private static BluetoothService bluetoothServiceInstance;
 
     public static BluetoothService getInstance() {
@@ -33,20 +33,15 @@ public class BluetoothService {
     }
 
     @SuppressLint("MissingPermission")
-    public ArrayList<Device> getPairedDevices() {
-        ArrayList<Device> devices = new ArrayList<>();
+    public ArrayList<BluetoothDevice> getPairedDevices() {
+        ArrayList<BluetoothDevice> devices = new ArrayList<>();
 
         if (null != getBluetoothAdapter()) {
             Set<BluetoothDevice> pairedDevices = BluetoothAdapter.getDefaultAdapter().getBondedDevices();
 
             if (null != pairedDevices && pairedDevices.size() > 0) {
                 // There are paired devices. Get the name and address of each paired device.
-                for (BluetoothDevice device : pairedDevices) {
-                    @SuppressLint("MissingPermission") String deviceName = device.getName();
-                    String deviceHardwareAddress = device.getAddress(); // MAC address
-                    Device newDevice = new Device(deviceName, deviceHardwareAddress,false);
-                    devices.add(newDevice);
-                }
+                devices.addAll(pairedDevices);
             }
         }
 

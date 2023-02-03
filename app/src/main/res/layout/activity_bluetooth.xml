@@ -19,85 +19,116 @@
             android:paddingStart="20dp"
             android:paddingEnd="20dp">
 
-
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/enable_bluetooth_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bottom_stroke_background"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
-                android:background="@drawable/bottom_stroke_background"
                 android:text="@string/bluetooth"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/btn_send_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_stroke_background"
-                android:orientation="vertical"
+                android:drawablePadding="20dp"
                 android:paddingTop="20dp"
-                android:paddingBottom="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
-                    android:text="@string/paired_device"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_paired_device"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false" />
-            </LinearLayout>
+                android:paddingBottom="20dp"
+                android:text="@string/send_data"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:drawableEndCompat="@drawable/ic_right" />
 
             <LinearLayout
+                android:id="@+id/layout_device"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="20dp">
+                android:visibility="gone">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
-                    android:text="@string/available_device"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:background="@drawable/bottom_stroke_background"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_available_device"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:text="@string/paired_device"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_paired_device"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false" />
+                    android:orientation="vertical"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:paddingBottom="10dp"
+                            android:text="@string/available_device"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/scan_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="end"
+                            android:text="Đang quét..."
+                            android:textSize="13sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_available_device"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/scan_layout"
+    <TextView
+        android:id="@+id/btn_scan"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="bottom"
         android:layout_weight="1.5"
         android:background="@drawable/top_stroke_background"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/btn_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/scan"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:drawableTopCompat="@drawable/ic_scan"/>
-
-    </LinearLayout>
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/scan"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:drawableTopCompat="@drawable/ic_scan" />
 
 </LinearLayout>
